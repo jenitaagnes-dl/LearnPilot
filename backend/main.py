@@ -1,8 +1,8 @@
+from routes.course import router as course_router
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from routes.upload import router as upload_router
-
 
 app = FastAPI(
     title="LearnPilot AI",
@@ -21,7 +21,7 @@ app.add_middleware(
 
 
 app.include_router(upload_router)
-
+app.include_router(course_router)
 
 @app.get("/")
 def root():
